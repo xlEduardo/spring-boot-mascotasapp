@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="inicio :: head">
+</head>
+<body background="/130104.jpg">
+<div class="ff">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Cerrar Sesion"/>
+    </form>
+</div>
+<section class="header" id="header">
+    <a th:href="@{/inicio}"><p>Inicio</p></a>
+    <a th:href="@{/views/}"><p> Mascotas</p></a>
+</section>
+
+<div style="text-align: center; color:white" ><h1> Agregar una mascota </h1></div>
+
+<section class="banner" id="cabeza">
+    <div>
+        <form th:action="@{/views/save}" th:object="${mascota}"  method="post">
+            <input  type="hidden" th:field="*{id}">
+            <label for="Tipo"> <h3>Tipo</h3> </label>
+            <select id="Tipo" th:field="*{tipo}" required>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+            </select><br>
+            <label for="Raza"><h3>Raza </h3></label>
+            <input  type="text" th:field="*{raza}"  id="Raza" placeholder="Raza de la mascota" required><br><br>
+            <label for="Color"><h3>Color </h3></label>
+            <input  type="text"  th:field="*{color}" id="Color" placeholder="Color de la mascota" required><br><br>
+            <label for="Pelaje"><h3>Tipo de Pelaje </h3></label>
+            <input type="text" th:field="*{pelaje}"  id="Pelaje" placeholder="Tipo de pelaje" required><br><br>
+            <label for="Fecha"><h3>Fecha de Nacimiento </h3></label>
+            <input  type="text" th:field="*{fecha}" id="Fecha" placeholder="dd/mm/year" required><br><br>
+            <label for="Vacunas"><h3>Vacunas </h3></label> <br>
+            <input type="text"  th:field="*{vacunas}" id="Vacunas" placeholder="Vacunas aplicadas" required><br><br>
+            <label for="Imagen"><h3>Adjuntar imagen </h3></label> <br>
+            <input type="text"  th:field="*{imagen}" id="Imagen" placeholder="URL de imagen" required><br><br>
+            <input th:type="hidden" th:field="*{adoptado}" th:value="No">
+            <input th:type="hidden" th:field="*{dueno}" th:value="Ninguno">
+            <input type="submit" value="Aceptar">
+            <input type="button" value="Cancelar" onclick="location.href='/views/';">
+
+        </form>
+    </div>
+</section>
+
+
+</body>
+
+</html>

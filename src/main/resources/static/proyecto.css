@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+.ai{
+    text-decoration:none;
+    font-size: 25px;
+    margin-top:0px;
+    line-height:40px;
+    margin-left:20px;
+    float: left;
+    font-family:'Righteous', cursive;
+    display:inline-block;
+    padding: 0px;
+    background-color:#FFF3E0;
+    color:black;
+
+}
+a{
+    text-decoration:none;
+    font-size: 25px;
+    margin-top:0px;
+    line-height:40px;
+    padding: 10px;
+    display:inline-block;
+
+    color: black;
+}
+body{
+    margin:0px;
+    padding:0px;
+    font-family: 'Signika', sans-serif;
+}
+
+.header{
+    width:100%;
+    height:40px;
+    box-sizing:border-box;
+    text-align:center;
+    margin-top:0px;
+    font-family:'Righteous', cursive;
+    background-color:#00807E;
+}
+
+.texto-encima{
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    color:#693A0C;
+    line-height:20px;
+    font-size:40px;
+    transform: translate(100%,460%);
+    font-family:Cooper black;
+}
+#h{
+    font-size: 25px;
+}
+
+.header p:hover{
+    color: black;
+}
+.div1{
+    margin:0 auto;
+    width:100%;
+    height:100px;
+    background-color:#FFF3E0;
+
+
+
+}
+.texto-encima2{
+    position: absolute;
+    top: 7%;
+    left: 5px;
+    color:black;
+    line-height:20px;
+    font-size:35px;
+    transform: translate(40%, 80%);
+    font-family:Cooper black;
+}
+.img1{
+    width:6%;
+    float:left;
+    padding-top:0px;
+    margin-left:0%;
+}
+
+.header p{
+    font-size:25px;
+    font-family:'Righteous', cursive;
+    vertical-align:middle;
+
+}
+.banner{
+    width:100%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center center;
+
+    box-sizing:border-box;
+}
+
+.banner img{
+    max-width:100%;
+}
+
+.banner hr{
+    display:block;
+    width:100%;
+    height:5px;
+
+    margin:30px auto 10px;
+    border:none;
+}
+
+
+#main{
+    background-color:#FFF3E0;
+    width:100%;
+
+    height:80px;
+    border-top-style:solid;
+
+}
+
+.banner h1{
+    margin:0px;
+    font-size:25px;
+    text-align:center;
+    color:white;
+}
+.banner h3{
+    margin:0px;
+    font-size:25px;
+    text-align:center;
+    color:white;
+}
+
+.banner div{
+    width:100%;
+
+    margin:0px auto;
+    text-align:center;
+}
+
+.ff{
+    text-align:right;
+    margin-right: 10px;
+    margin-top:10px;
+}

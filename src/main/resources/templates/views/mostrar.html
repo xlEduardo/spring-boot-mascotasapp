@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="inicio :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body background="/130104.jpg">
+<div class="ff">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Cerrar Sesion"/>
+    </form>
+</div>
+<section class="header" id="header">
+    <a th:href="@{/inicio}"><p>Inicio</p></a>
+    <a th:href="@{/views/create}"><p> Agregar mascota</p></a>
+</section>
+<div style="text-align: center;"> <h1 th:text="${titulo}"> </h1> </div>
+<table class="table table-hover table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Tipo</th>
+        <th scope="col">Raza</th>
+        <th scope="col">Color</th>
+        <th scope="col">Pelaje</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Vacunas</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Adoptado</th>
+        <th scope="col">Dueño</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+        <th scope="col">Adoptar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cl:${mascotas}">
+        <th scope="row" th:text="${cl.tipo}" ></th>
+        <td th:text="${cl.raza}"></td>
+        <td th:text="${cl.color}" ></td>
+        <td th:text="${cl.pelaje}"></td>
+        <td th:text="${cl.fecha}" ></td>
+        <td th:text="${cl.vacunas}"></td>
+        <td> <img th:src="${cl.imagen}" width="80px" height="80px"> </td>
+        <td th:text="${cl.adoptado}"></td>
+        <td th:text="${cl.dueno}"></td>
+        <td>
+            <a class="btn btn-success brn-sm" th:href="@{/views/edit/} + ${cl.id}"
+               th:text="'Editar'" title="Editar mascota"></a>
+        </td>
+        <td>
+            <a class="btn btn-danger brn-sm" th:href="@{/views/delete/} + ${cl.id}"
+               th:text="'Eliminar'" title="Eliminar mascota" onclick="return confirm('¿Estas seguro que quieres eliminarlo?');"></a>
+        </td>
+        <td>
+            <a class="btn btn-success brn-sm" th:href="@{/views/adoptar/} + ${cl.id}"
+               th:text="'Adoptar'" title="Adoptar mascota"></a>
+        </td>
+    </tr>
+
+    </tbody>
+</table> <br>
+
+</body>
+</html>

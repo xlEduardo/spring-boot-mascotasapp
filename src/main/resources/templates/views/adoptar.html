@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="inicio :: head">
+</head>
+<body background="/130104.jpg">
+<div class="ff">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Cerrar Sesion"/>
+    </form>
+</div>
+<section class="header" id="header">
+    <a th:href="@{/inicio}"><p>Inicio</p></a>
+    <a th:href="@{/views/}"><p> Mascotas</p></a>
+    <a th:href="@{/views/create}"><p> Agregar mascota</p></a>
+</section>
+
+<div style="text-align: center; color:white" ><h1> Adopta tu mascota </h1></div>
+
+<table class="table table-hover table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Tipo</th>
+        <th scope="col">Raza</th>
+        <th scope="col">Color</th>
+        <th scope="col">Pelaje</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Vacunas</th>
+        <th scope="col">Imagen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:object="${mascota}">
+        <th scope="row" th:text="${mascota.getTipo()}" th:field="*{tipo}"></th>
+        <td th:text="${mascota.raza}"> </td>
+        <td th:text="${mascota.color}" ></td>
+        <td th:text="${mascota.pelaje}" ></td>
+        <td th:text="${mascota.fecha}" ></td>
+        <td th:text="${mascota.vacunas}" ></td>
+        <td> <img th:src="${mascota.imagen}" width="80px" height="80px"> </td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+<section class="banner" id="cabeza">
+    <div>
+        <form th:action="@{/views/save}" th:object="${mascota}"  method="post">
+            <input  type="hidden" th:field="*{id}">
+            <label><h1>¿Quieres adoptar esta mascota?</h1></label>
+            <select id="id_categoria" th:field="*{adoptado}" th:default="No">
+                <option value="No">No</option>
+                <option value="Si">Si</option>
+            </select><br>
+            <label><h3>Dueño </h3></label> <br>
+            <input id="d" disabled="disabled" type="text" th:field="*{dueno}" value="Huerfano"> <br><br>
+            <input id="b" type="submit" disabled="disabled" value="Adoptar">
+            <input type="button"  value="Cancelar" onclick="location.href='/views/';">
+            <input  type="hidden" th:field="*{tipo}">
+            <input  type="hidden" th:field="*{raza}">
+            <input  type="hidden" th:field="*{color}">
+            <input  type="hidden" th:field="*{pelaje}">
+            <input  type="hidden" th:field="*{vacunas}">
+            <input  type="hidden" th:field="*{fecha}">
+            <input  type="hidden" th:field="*{imagen}">
+        </form>
+    </div>
+</section>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#id_categoria').change(function(e) {
+            if ($(this).val() == "Si") {
+                $('#d').prop("disabled", false);
+                $('#b').prop("disabled", false);
+            } else {
+                $('#d').prop("disabled", true);
+                $('#b').prop("disabled", true);
+            }
+        })
+    });
+</script>
+
+
+</html>
